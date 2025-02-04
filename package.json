@@ -7,7 +7,7 @@
   "qa": "cross-env NODE_ENV=qa nodemon --watch src/**/*.ts --exec \"ts-node\" src/server.ts",
   "staging": "cross-env NODE_ENV=staging nodemon --watch src/**/*.ts --exec \"ts-node\" src/server.ts",
   "prod": "cross-env NODE_ENV=production npm run build && node dist/server.js",
-  "start": "npm run prod",
+  "start": "npm run dev",
   "build": "tsc"
 },
   "keywords": [],
