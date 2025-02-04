@@ -6,6 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerOptions from './swagger';
 import taskRoutes from './routes/taskRoutes';
 import userRoutes from './routes/userRoutes';
+import { errorHandler } from './middlewares/errorHandler';
 
 dotenv.config();
 
@@ -22,14 +23,8 @@ app.use(express.json());
 app.use('/api/tasks', taskRoutes);
 app.use('/api/users', userRoutes);
 
-// Error handling
-app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
 
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Internal server error' });
-});
+// Error handling
+app.use(errorHandler);
 
 export default app;
