@@ -3,6 +3,13 @@ import { UserController } from '../controllers/UserController';
 
 const router = Router();
 
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Get all users
+ *     tags: [User]
+ */
 router.get('/', UserController.getUsers);
 router.get('/:user_id', UserController.getUserById);
 router.post('/', UserController.createUser);
